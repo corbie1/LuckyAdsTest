@@ -15,13 +15,23 @@
 }
 
 body {
+  font-family: Inter;
   background: -o-radial-gradient(50% 50%, 152.33% 152.33%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F3D4C3;
   background: radial-gradient(152.33% 152.33% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F3D4C3;
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .b-promotion {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 50px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .b-promotion::before {
@@ -29,7 +39,7 @@ body {
   position: absolute;
   height: 100%;
   width: 50%;
-  background-image: url(../img/bg-1.png);
+  background-image: url(../img/bg-1-min.png);
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
@@ -44,7 +54,7 @@ body {
   position: absolute;
   height: 100%;
   width: 50%;
-  background-image: url(../img/bg-2.png);
+  background-image: url(../img/bg-2-min.png);
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
@@ -54,31 +64,46 @@ body {
   opacity: 0.2;
 }
 
-.b-promotion__text {
-  margin-right: 120px;
-}
-
-.b-promotion__inner {
-  margin-top: 50px;
-}
-
 .promotion__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 84px;
   margin-top: 36px;
   -webkit-transform: translateX(800px);
       -ms-transform: translateX(800px);
           transform: translateX(800px);
   -webkit-animation: moveFromRight 1s 2.5s ease both 1;
           animation: moveFromRight 1s 2.5s ease both 1;
+  padding: 24px 32px;
+  text-align: center;
+  font-style: normal;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  max-width: 304px;
+  min-height: 505px;
+  margin-top: auto;
 }
 
 .promotion__header {
   -webkit-animation: appearance .5s 1s ease both   1;
           animation: appearance .5s 1s ease both   1;
   margin-top: 20px;
+  width: 200px;
 }
 
 .promotion__logo {
   position: relative;
+}
+
+.promotion__logo img {
+  width: 200px;
 }
 
 .promotion__logo::before {
@@ -92,6 +117,13 @@ body {
   -webkit-filter: blur(18px);
           filter: blur(18px);
   border-radius: 50px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.promotion__logo:hover::before {
+  background: #eedddd;
 }
 
 .promotion__list {
@@ -100,22 +132,24 @@ body {
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 1.071em;
   margin-left: 30px;
   margin-top: 10px;
 }
 
-.promotion__list--item {
+.promotion__item {
   opacity: 0;
   margin-top: 50px;
   position: relative;
+  height: 60px;
+  max-width: 280px;
 }
 
-.promotion__list--item::before {
+.promotion__item::before {
   content: '';
   position: absolute;
   background-repeat: no-repeat;
-  background-image: url(../img/check.png);
+  background-image: url(../img/check-min.png);
   height: 100%;
   width: 56px;
   left: -70px;
@@ -130,7 +164,7 @@ body {
   font-style: normal;
   font-weight: 900;
   font-size: 56px;
-  line-height: 68px;
+  line-height: 1.214em;
   text-transform: uppercase;
   color: #118976;
   max-width: 680px;
@@ -143,59 +177,56 @@ body {
 }
 
 .promotion__bottle {
+  margin-right: 28px;
+  margin-top: -46px;
   opacity: 0;
-  margin-left: 118px;
-  margin-top: -50px;
+  margin-left: auto;
   -webkit-animation: appearance .9s ease both 1;
           animation: appearance .9s ease both 1;
 }
 
-.promotion__list--item:nth-child(1) {
+.promotion__item:nth-child(1) {
   -webkit-animation: appearance .3s  1.5s ease both 1;
           animation: appearance .3s  1.5s ease both 1;
 }
 
-.promotion__list--item:nth-child(2) {
+.promotion__item:nth-child(2) {
   -webkit-animation: appearance .3s 1.8s ease both 1;
           animation: appearance .3s 1.8s ease both 1;
 }
 
-.promotion__list--item:nth-child(3) {
+.promotion__item:nth-child(3) {
   -webkit-animation: appearance .3s 2.1s ease both 1;
           animation: appearance .3s 2.1s ease both 1;
 }
 
 .input {
-  width: 255px;
+  outline: none;
+  width: 100%;
+  display: block;
   padding: 11px 8px 12px 17px;
-  font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  margin-bottom: 13px;
   color: #333333;
   border: 1px solid #089C84;
-  margin-right: 15px;
+  -webkit-appearance: none;
+}
+
+.form__field {
+  margin-bottom: 10px;
 }
 
 .form {
-  padding: 24px 32px;
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  background: #FFFFFF;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-  min-width: 224px;
-  min-height: 505px;
+  margin-top: auto;
 }
 
 .form__title {
   font-weight: bold;
   font-size: 28px;
-  line-height: 32px;
+  line-height: 1.143em;
   color: #333333;
+  margin-bottom: 14px;
 }
 
 .form__subtitle {
@@ -203,21 +234,19 @@ body {
   font-size: 22px;
   line-height: 110%;
   text-align: center;
-  padding-top: 14px;
   color: #FF2C2C;
+  margin-bottom: 14px;
 }
 
 .form__price {
   font-weight: 800;
   font-size: 38px;
-  padding-top: 5px;
-  line-height: 42px;
+  line-height: 1.105em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
   color: #FF2C2C;
-  margin-bottom: 96px;
 }
 
 .form__button {
@@ -227,8 +256,6 @@ body {
           box-shadow: inset 0px -4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
   padding: 20px 77px;
-  margin-right: 10px;
-  margin-top: 2px;
   border: none;
   font-weight: bold;
   font-size: 18px;
@@ -250,12 +277,11 @@ body {
 .form__asterisk {
   font-weight: normal;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 1.667em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   color: #828282;
-  margin-left: -17px;
 }
 
 .b-promotion__content {
@@ -266,7 +292,7 @@ body {
 
 .form__country {
   cursor: pointer;
-  background: url(../img/Vector.png) 92%;
+  background: url(../img/Vector-min.png) 92%;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -373,6 +399,17 @@ select {
     margin-right: 0px;
   }
 
+  .promotion__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+
+  .promotion__logo {
+    margin: auto;
+  }
+
   .promotion__content {
     display: block;
   }
@@ -380,7 +417,7 @@ select {
   .promotion__title {
     max-width: none;
     font-size: 32px;
-    line-height: 40px;
+    line-height: 1.250em;
   }
 
   .promotion__form {
@@ -388,33 +425,30 @@ select {
   }
 
   .promotion__bottle {
-    margin-left: 0px;
-    margin-top: -20px;
+    max-width: 176px;
+    margin: auto;
     margin-bottom: 30px;
   }
 
   .promotion__list {
     margin-bottom: 50px;
-    margin-left: 0px;
   }
 
-  .promotion__list--item {
+  .promotion__item {
     margin: 15px auto;
     text-align: left;
     height: 80px;
     width: 250px;
   }
 
-  .form {
+  .promotion__form {
     max-width: 450px;
     margin-left: auto;
     margin-right: auto;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .form {
-    max-width: 400px;
+  .form__title {
+    margin-bottom: 44px;
   }
 }
 
@@ -428,30 +462,50 @@ select {
     margin: 0 auto;
     width: 255px;
     font-size: 32px;
-    line-height: 40px;
+    line-height: 1.250em;
   }
 
   .promotion__list {
     margin-top: 36px;
   }
 
-  .promotion__list--item {
+  .promotion__item {
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.333em;
     max-width: 193px;
   }
 
-  .form {
+  .promotion__form {
     max-width: 320px;
     margin-left: 10%;
     margin-right: 10%;
   }
 
-  .form__title {
+  .promotion__form__title {
     margin-bottom: 33px;
   }
 
-  .form__price {
+  .promotion__form__price {
     margin-bottom: 58px;
+  }
+
+  .form__button {
+    padding: 20px 40px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .input {
+    width: 200px;
+  }
+
+  .promotion__form {
+    max-width: 250px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .form__button {
+    padding: 20px 40px;
   }
 }

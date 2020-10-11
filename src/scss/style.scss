@@ -10,18 +10,26 @@
     }
 }
 body{
+    font-family: Inter;
     background: radial-gradient(152.33% 152.33% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F3D4C3;
 }
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .b-promotion{
     position: relative;
-    height: 100vh;
-
+    min-height: 100vh;
+    padding: 50px 0;
+    box-sizing: border-box;
     &::before{
         content: '';
         position: absolute;
         height: 100%;
         width: 50%;
-        background-image: url(../img/bg-1.png);
+        background-image: url(../img/bg-1-min.png);
         background-size: cover;
         background-position: left;
         background-repeat: no-repeat;
@@ -35,7 +43,7 @@ body{
         position: absolute;
         height: 100%;
         width: 50%;
-        background-image: url(../img/bg-2.png);
+        background-image: url(../img/bg-2-min.png);
         background-size: cover;
         background-position: right;
         background-repeat: no-repeat;
@@ -44,27 +52,40 @@ body{
         z-index: -2;
         opacity: 0.2;
     }
-    &__text{
-        margin-right: 120px;
-    }
-    &__inner{
-    margin-top: 50px;
-
-    }
+  
+ 
 }
 
 .promotion{
      &__form{
+        display: flex;
+        flex-direction: column;
+         margin-left: 84px;
         margin-top: 36px;
         transform: translateX(800px);
         animation: moveFromRight 1s 2.5s ease both 1;
+        padding: 24px 32px;
+        text-align: center;
+        font-style: normal;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 2px;
+        max-width: 304px;
+        min-height: 505px;
+        margin-top: auto;
         }
     &__header{
         animation: appearance .5s 1s ease both   1;
         margin-top: 20px;
+        width: 200px;
+
     }
     &__logo{
         position: relative;
+
+        img{
+            width: 200px;
+        }
         &::before{
             position: absolute;
             height: 80px;
@@ -75,6 +96,13 @@ body{
             background: #FFFFFF;
             filter: blur(18px);
             border-radius: 50px;
+            transition: .2s;
+            
+        }
+        &:hover{
+            &::before{
+              background: rgb(238, 221, 221);
+            }
         }
     }
     &__list{
@@ -83,22 +111,24 @@ body{
         font-style: normal;
         font-weight: bold;
         font-size: 20px;
-        line-height: 28px;
+        line-height: 1.071em;
         margin-left: 30px;
         margin-top: 10px;
-        &--item{
-            opacity: 0;
-            margin-top: 50px;
-            position: relative;
-            &::before{
-                content: '';
-                position: absolute;
-                background-repeat: no-repeat;
-                background-image: url(../img/check.png);
-                height: 100%;
-                width: 56px;
-                left: -70px;
-            }
+    }
+    &__item{
+        opacity: 0;
+        margin-top: 50px;
+        position: relative;
+        height: 60px;
+        max-width: 280px;
+        &::before{
+            content: '';
+            position: absolute;
+            background-repeat: no-repeat;
+            background-image: url(../img/check-min.png);
+            height: 100%;
+            width: 56px;
+            left: -70px;
         }
     }
     &__title{
@@ -109,7 +139,7 @@ body{
         font-style: normal;
         font-weight: 900;
         font-size: 56px;
-        line-height: 68px;            
+        line-height: 1.214em;            
         text-transform: uppercase;
         color: #118976;
         max-width: 680px;
@@ -119,15 +149,16 @@ body{
     }
 
     &__bottle{
+        margin-right: 28px;
+        margin-top: -46px;
         opacity: 0;
-        margin-left: 118px;
-        margin-top: -50px;
+        margin-left: auto;
         animation: appearance .9s ease both 1;
-        }
+    }
     
 }
 
-.promotion__list--item{
+.promotion__item{
     &:nth-child(1){
         animation: appearance .3s  1.5s ease both 1;
 
@@ -143,51 +174,48 @@ body{
 }
 
 .input{
-    width: 255px;
+    outline: none;
+    width: 100%;
+    display: block;
     padding:  11px 8px 12px 17px;;
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    margin-bottom: 13px;
     color: #333333;
     border: 1px solid #089C84;
-    margin-right: 15px;
-    
+  -webkit-appearance: none;
+
+}
+.form__field{
+    margin-bottom: 10px;
+
 }
 .form{
-    padding: 24px 32px;
-    text-align: center;
-    font-family: Inter;
-    font-style: normal;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 2px;
-    min-width: 224px;
-    min-height: 505px;
+    margin-top: auto;
     &__title{
         font-weight: bold;
         font-size: 28px;
-        line-height: 32px;
+        line-height: 1.143em;
         color: #333333;
+        margin-bottom: 14px;
+
     }
     &__subtitle{
         font-weight: bold;
         font-size: 22px;
         line-height: 110%;
         text-align: center;
-        padding-top: 14px;
         color: #FF2C2C;
+        margin-bottom: 14px;
+
     }
     &__price{
         font-weight: 800;
         font-size: 38px;
-        padding-top: 5px;
-        line-height: 42px;
+        line-height: 1.105em;
         align-items: center;
         text-align: center;
         color: #FF2C2C;
-        margin-bottom: 96px;
     }
     &__button{
         cursor: pointer;
@@ -195,8 +223,6 @@ body{
         box-shadow: inset 0px -4px 0px rgba(0, 0, 0, 0.25);
         border-radius: 50px;
         padding: 20px 77px;
-        margin-right: 10px;
-        margin-top: 2px;
         border: none;
         font-weight: bold;
         font-size: 18px;
@@ -208,16 +234,14 @@ body{
         transition: .3s;
         &:hover{
         background: rgb(187, 37, 40);
-
         }
     }
     &__asterisk{
         font-weight: normal;
         font-size: 12px;
-        line-height: 20px;
+        line-height: 1.667em;
         align-items: center;
         color: #828282;
-        margin-left: -17px;
     }
 }
 .b-promotion__content{
@@ -226,7 +250,7 @@ body{
 
 .form__country {
     cursor: pointer;
-    background: url(../img/Vector.png) 92%;
+    background: url(../img/Vector-min.png) 92%;
     appearance: none;
     background-repeat: no-repeat;
 }
@@ -284,46 +308,54 @@ input, select{
         }
     }
     .promotion{
+        &__header{
+            display: flex;
+            width: 100%;
+        }
+        &__logo{
+            margin: auto;
+        }
+       
         &__content{
             display: block;
+
         }
         &__title{
             max-width: none;
             font-size: 32px;
-            line-height: 40px;
+            line-height: 1.250em;
         }
         &__form{
             padding-bottom: 100px;
         }
     }
     .promotion__bottle{
-        margin-left: 0px;
-        margin-top: -20px;
-    margin-bottom: 30px;
-
+        max-width: 176px;
+        margin: auto;
+        margin-bottom: 30px;
     }
     .promotion__list{
         margin-bottom: 50px;
-        margin-left: 0px;
+        
     }
-    .promotion__list--item{
+    .promotion__item{
        margin: 15px auto;
        text-align: left;
         height: 80px;
         width: 250px;
     }
-    .form{
+    .promotion__form{
         max-width: 450px;
         margin-left: auto;
         margin-right: auto;
     }
+    .form__title{
+        margin-bottom: 44px
+    }
 }
    
 @media screen and (max-width: 768px){
-    .form{
-        max-width: 400px;
-      
-    }
+
 
 }
 
@@ -337,26 +369,46 @@ input, select{
             margin: 0 auto;
             width: 255px;
             font-size: 32px;
-            line-height: 40px;
+            line-height: 1.250em;
         }
     }
     .promotion__list{
         margin-top: 36px;
     }
-    .promotion__list--item{
+    .promotion__item{
         font-size: 18px;
-        line-height: 24px;
+        line-height: 1.333em;
          max-width: 193px;
      }
-    .form{
+    .promotion__form{
         max-width: 320px;
         margin-left: 10%;
         margin-right: 10%;
+        
         &__title{
             margin-bottom: 33px;
         }
         &__price{
             margin-bottom: 58px;
         }
+    }
+    .form__button{
+        padding: 20px 40px;
+    }
+   
+}
+
+@media screen and (max-width: 321px){
+    .input{
+        width: 200px;
+    }
+    .promotion__form{
+        
+        max-width: 250px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .form__button{
+        padding: 20px 40px;
     }
 }
